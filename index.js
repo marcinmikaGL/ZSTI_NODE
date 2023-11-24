@@ -8,20 +8,32 @@ const connection = mysql.createConnection({
   database: 'test'
 });
 
-function dodaj(obj) {
-
+function dodaj(obj,tab) {
+  connection.query(query);
 }
 
-function aktaualizuj(id,obj) {
-
+function aktaualizuj(id,obj,tab) {
+  connection.query(query);
 }
 
-function usun(id){
-
+function usun(id,tab){
+  connection.query(query);
 }
 
-function pobierz(parametr) {
 
+function pobierz(parametr,tab) {
+  if(parametr){
+    parametr = 'WHERE `name` = "Page" AND `age` > 45';
+  }
+
+ let query = 'SELECT * FROM ' +tab+ 'parametr';  
+  connection.query(
+      query,
+      function(err, results, fields) {
+        console.log(results); 
+        console.log(fields);
+        return fields;
+      }
 }
 
 
